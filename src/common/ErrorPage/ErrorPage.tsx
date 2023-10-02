@@ -1,11 +1,5 @@
-import s from './ErrorPage.module.scss'
-
 const ErrorPage = () => {
-  return (
-    <div>
-      errorPage
-    </div>
-  );
-};
+  return <div>errorPage</div>
+}
 
-export default ErrorPage;
+export default ErrorPage

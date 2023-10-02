@@ -1,3 +1,5 @@
-import { Table } from "./Table";
+import { Table } from "./Table"
+import type { RowType } from "./Table/types"
 
-export {Table}
+
+export {Table,RowType}
