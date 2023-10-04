@@ -1,8 +1,7 @@
 // noinspection TypeScriptUnresolvedVariable
 
 import { RowType } from "./types"
-import { copyState, findObj } from "./healpers";
-
+import { copyState, findObj } from "./healpers"
 
 // редьюсер для useReducer  (для локальных изменений без участия сервера)
 // не стала использовать RTK, тк данные изменяются синхронно и только в одной компоненте Table
@@ -50,13 +49,17 @@ export const tableReducer = (
       findObj(
         newState,
         action.payload,
-        (curEl: RowType, payload: { id: number }, rows: RowType[]) => {
+        (curEl: RowType, payload: { id: number }, rows: RowType[] | null[]) => {
           const index = rows.indexOf(curEl)
           if (index > -1) {
             rows.splice(index, 1)
+            if (rows && rows.length === 0) {
+              rows.push(null as (RowType & null) | undefined)
+            }
           }
         },
       )
+
       return newState
     }
 

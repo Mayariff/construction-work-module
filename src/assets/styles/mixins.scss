@@ -1,0 +1,47 @@
+@import 'variables';
+
+
+@mixin size($w,$h){
+  width: $w;
+  height: $h;
+}
+@mixin position($position, $top, $left){
+  position: $position;
+  top: $top;
+  left: $left;
+}
+@mixin flex( $direction,$justify, $align, $shrink) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-shrink: $shrink;
+}
+
+@mixin font($size, $wight, $lineH) {
+  font-size: $size;
+  font-weight: $wight;
+  line-height: $lineH;
+}
+@mixin tableFont(){
+  font-feature-settings: 'clig' off, 'liga' off;
+  letter-spacing: 0.1px;
+}
+
+@mixin backgroundImg($position, $size) {
+  background-repeat: no-repeat;
+  background-position: $position;
+  background-size: $size;
+  position: relative;
+}
+
+@mixin vLine($h){
+  &:before{
+    content: ' ';
+    display: block;
+    @include size(1px, $h);
+    height:100%;
+    border-left: 1px solid $colorDecoration;
+    @include position(absolute, 0, 0);
+  }
+}

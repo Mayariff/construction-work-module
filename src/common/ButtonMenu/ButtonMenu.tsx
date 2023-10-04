@@ -1,34 +1,56 @@
+import s from "./ButtonMenu.module.scss"
+import { icons } from "../../assets/icons"
+import React from "react"
+
 type propsType = {
   onDel: () => void
   onAdd: () => void
   isHover: boolean
   changeHovering: (isHover: boolean) => void
   isEditMode: boolean
+  isChild: boolean
+  isHoverParentBtnMenu?: boolean
 }
 
-const ButtonMenu = ({
-  onDel,
-  onAdd,
-  isHover,
-  changeHovering,
-  isEditMode,
-}: propsType) => {
-  //появдение и исчезновение кнопки DEL
-  const onMouseOverHandler = () => changeHovering(true)
-  const onMouseLeaveHandler = () => changeHovering(false)
+const ButtonMenu = React.memo(
+  ({
+    onDel,
+    onAdd,
+    isHover,
+    changeHovering,
+    isEditMode,
+    isChild,
+    isHoverParentBtnMenu,
+  }: propsType) => {
+    //появдение и исчезновение кнопки DEL
+    const onMouseOverHandler = () => changeHovering(true)
+    const onMouseLeaveHandler = () => changeHovering(false)
 
-  return (
-    <div
-      style={{ border: "1px solid black" }}
-      onMouseOver={onMouseOverHandler}
-      onMouseLeave={onMouseLeaveHandler}
-    >
-      <button onClick={onAdd} disabled={isEditMode}>
-        Add
-      </button>
-      {isHover && <button onClick={onDel}>DEL</button>}
-    </div>
-  )
-}
+    let btnStyle = isChild ? `${s.btnMenu} ${s.withLine}` : s.btnMenu
+
+    return (
+      <div
+        className={isHover ? `${btnStyle} ${s.active}` : btnStyle}
+        onMouseOver={onMouseOverHandler}
+        onMouseLeave={onMouseLeaveHandler}
+      >
+        <button onClick={onAdd} disabled={isEditMode}>
+          <img src={icons.addItem} alt={"add row"} className={s.img} />
+        </button>
+        {(isHover || isHoverParentBtnMenu) && (
+          <button onClick={onDel}>
+            <img
+              src={icons.delItem}
+              alt={"delete row"}
+              className={
+                !isHover && !isHoverParentBtnMenu ? s.img2 : `${s.img2}`
+              }
+            />
+          </button>
+        )}
+      </div>
+    )
+  },
+)
 
 export default ButtonMenu

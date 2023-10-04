@@ -1,2 +1,17 @@
 @import "/src/assets/styles/mixins";
 @import "/src/assets/styles/variables";
+
+.container{
+  @include size(100vw, 100vh);
+  @include flex(column, start, flex-start,0);
+  background-color: $colorBgc2;
+
+  color: $colorFontMain;
+  font-family: $fontFamily;
+  font-style: normal;
+  @include font(14px,400,normal);
+  .content{
+    @include flex(row, start, start,0);
+    flex-wrap: nowrap;
+  }
+}

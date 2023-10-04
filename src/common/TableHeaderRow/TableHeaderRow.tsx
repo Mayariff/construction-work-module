@@ -1,14 +1,20 @@
+import s from "./TableHeaderRow.module.scss"
+
 type propsType = {
   columNameArr: string[]
 }
 
 const TableHeaderRow = ({ columNameArr }: propsType) => {
   return (
-    <tr>
-      {columNameArr.map((el) => (
-        <th key={el}>{el}</th>
-      ))}
-    </tr>
+    <thead>
+      <tr className={s.row}>
+        {columNameArr.map((el) => (
+          <th key={el} className={s.cell}>
+            {el}
+          </th>
+        ))}
+      </tr>
+    </thead>
   )
 }
 

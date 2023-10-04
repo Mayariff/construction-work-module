@@ -1,7 +1,7 @@
 import { RowType } from "./types"
 
 //стартовые данные для таблицы
-export const data: RowType[] = [
+/*export const data: RowType[] = [
   {
     child: [null],
     equipmentCosts: 1123,
@@ -95,6 +95,90 @@ export const data: RowType[] = [
       },
     ],
   },
+]*/
+
+export const data: RowType[] = [
+  {
+    equipmentCosts: 1123,
+    estimatedProfit: 112345.67,
+    id: 1,
+    machineOperatorSalary: 0,
+    mainCosts: 0,
+    materials: 0,
+    mimExploitation: 0,
+    overheads: 11345.67,
+    rowName: "string1",
+    salary: 100.7,
+    supportCosts: 0,
+    total: 0,
+    child: [
+      {
+        child: [
+          {
+            equipmentCosts: 0,
+            estimatedProfit: 0,
+            id: 3,
+            parentId: 2,
+            machineOperatorSalary: 0,
+            mainCosts: 0,
+            materials: 0,
+            mimExploitation: 0,
+            overheads: 0,
+            rowName: "string3",
+            salary: 0,
+            supportCosts: 0,
+            total: 0,
+            child: [null]},
+          {
+            child: [null],
+            equipmentCosts: 0,
+            estimatedProfit: 0,
+            id: 31,
+            parentId: 2,
+            machineOperatorSalary: 0,
+            mainCosts: 0,
+            materials: 0,
+            mimExploitation: 0,
+            overheads: 0,
+            rowName: "string31",
+            salary: 0,
+            supportCosts: 0,
+            total: 0,
+          },
+          {
+            child: [null],
+            equipmentCosts: 0,
+            estimatedProfit: 0,
+            id: 32,
+            parentId: 2,
+            machineOperatorSalary: 0,
+            mainCosts: 0,
+            materials: 0,
+            mimExploitation: 0,
+            overheads: 0,
+            rowName: "string32",
+            salary: 0,
+            supportCosts: 0,
+            total: 0,
+          },
+        ],
+        equipmentCosts: 0,
+        estimatedProfit: 0,
+        id: 2,
+        parentId: 1,
+        machineOperatorSalary: 0,
+        mainCosts: 0,
+        materials: 0,
+        mimExploitation: 0,
+        overheads: 0,
+        rowName: "string2",
+        salary: 0,
+        supportCosts: 0,
+        total: 0,
+      },
+
+        ],
+      }
 ]
 
 // заголовки таблицы
