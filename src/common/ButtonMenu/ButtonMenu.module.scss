@@ -1,0 +1,44 @@
+@import "/src/assets/styles/mixins";
+@import "/src/assets/styles/variables";
+
+.btnMenu {
+  @include flex(row, flex-start, center, 0);
+  padding: 3px;
+  @include size(54px, 28px);
+  gap: 7px;
+  position: relative;
+
+  .img {
+    @include size(24px, 24px);
+  }
+
+  .img2 {
+    @include size(18px, 24px);
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.withLine {
+  &:before {
+    content: ' ';
+    display: block;
+    @include size(17px, 60px);
+    border-bottom: 1px solid $colorDecoration;
+    border-left: 1px solid $colorDecoration;
+    @include position(absolute, -46px, -12px);
+  }
+}
+
+
+.active {
+  border-radius: 6px;
+  background: $colorBgc3;
+  z-index: 10;
+
+  &:before {
+    width: 12px;
+  }
+}

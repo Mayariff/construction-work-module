@@ -1,0 +1,36 @@
+@import "/src/assets/styles/mixins";
+@import "/src/assets/styles/variables";
+
+.container {
+  position: relative;
+
+  .input {
+    border-radius: 6px;
+    border: 1px solid $colorBgc3;
+    background: rgba(0, 0, 0, 0.00);
+    padding: 10px;
+    transform: translateX(-10px);
+
+
+    @include tableFont();
+    color: $colorFont3;
+    @include font(14px, 400, 130%);
+  }
+
+  .error {
+    border-color: $colorRed;
+
+    &::placeholder {
+      content: 'error';
+    }
+  }
+
+  .errorText {
+    @include font(11px, 400, normal);
+    padding: 4px;
+    @include position(absolute, 120%, -10px);
+    z-index: 4;
+    border-radius: 2px;
+    background-color: $colorRed;
+  }
+}

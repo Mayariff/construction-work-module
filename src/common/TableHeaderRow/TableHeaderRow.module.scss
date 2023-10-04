@@ -1,0 +1,28 @@
+@import "/src/assets/styles/mixins";
+@import "/src/assets/styles/variables";
+
+.row {
+  @include font(14px, 400px, 130%);
+  color: $colorFontGrey;
+  @include tableFont();
+  border-bottom: 1px solid $colorBorder;
+  @include flex(row, center, center, 0);
+  flex-wrap: nowrap;
+
+  .cell {
+    @include flex(row, start, center, 0);
+    gap: 10px;
+    padding: 0 12px 12px 12px;
+    width: 200px;
+
+    &:nth-child(1) {
+      width: 110px;
+    }
+
+    &:nth-child(2) {
+      width: calc(100vw - 241px - 13px - 910px);
+      min-width: 120px;
+      max-width: 757px;
+    }
+  }
+}

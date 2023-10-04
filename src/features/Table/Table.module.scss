@@ -1,2 +1,22 @@
 @import "/src/assets/styles/mixins";
 @import "/src/assets/styles/variables";
+
+.container {
+  background: $colorBgc;
+  padding: 11px 9px 11px 4px;
+  width: calc(100vw - 241px);
+  height: calc(100vh - 90px);
+
+  .table {
+    border-collapse: collapse;
+
+    .empty {
+      @include font(18px, 400px, 130%);
+      color: $colorFontGrey;
+      @include tableFont();
+      font-style: italic;
+      text-align: center;
+      padding-top: 18px;
+    }
+  }
+}
